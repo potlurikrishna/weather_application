@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <style>
+        body {
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/551/801/266/map-world-map-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.button-container {
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <form method="post">
+        <!-- <div class="form-group">
+            <label for="apiKey">OpenWeatherMap API Key:</label>
+            <input type="text" id="apiKey" name="apiKey" required>
+        </div>  -->
+        <div class="form-group">
+            <label for="cityName">City Name:</label>
+            <input type="text" id="cityName" name="cityName" required>
+        </div>
+        <div class="form-group">
+            <label for="unit">Unit for Temperature:</label>
+            <select id="unit" name="unit">
+                <option value="metric">Celsius</option>
+                <option value="imperial">Fahrenheit</option>
+            </select>
+        </div>
+        <div class="button-container">
+            <button type="submit">Submit</button>
+        </div>
+        {% if error %}
+            <p style="color:red;"><b>{{ error }}</b></p>
+        {% endif %}
+    </form>
+</body>
+</html>

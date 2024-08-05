@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .clear-sky {
+            background-image: url('https://mrwallpaper.com/images/hd/clear-sky-with-wispy-clouds-zycncm0xf02v4a8i.jpg');
+            background-size: cover;
+        }
+        .cloudy {
+            background-image: url('https://i.redd.it/33n7tvtpv1d81.jpg');
+            background-size: cover;
+        }
+        .rainy {
+            background-image: url('https://img.pikbest.com/ai/illus_our/20230426/57740a345cc5f78d74f7bd28a3ea2750.jpg!w700wp');
+            background-size: cover;
+        }
+        .storm{
+            background-image: url('https://i.pinimg.com/736x/65/34/ce/6534cea4ab8e884ec50677531a63e9b5.jpg');
+            background-size:cover;
+        }
+        .snowy{
+            background-image: url('https://png.pngtree.com/background/20230519/original/pngtree-winter-scene-that-includes-snow-and-clouds-picture-image_2669753.jpg');
+            background-size: cover;
+        }
+        .foggy{
+            background-image: url('https://us.images.westend61.de/0001543106pw/mystical-landscape-of-leafless-trees-growing-in-forest-against-gray-foggy-sky-in-evening-ADSF22429.jpg');
+            background-size: cover;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+
+        /* Add more classes for different weather conditions as needed */
+    </style>
+</head>
+<body class="{{ weather_class }}">
+    <div class="container">
+        <h1>Weather in {{ weather_data.name }}</h1>
+        <p><b>Temperature</b>: {{ weather_data.main.temp }} °{{ 'C' if units == 'metric' else 'F' }}</p>
+        <p><b>Humidity:</b> {{ weather_data.main.humidity }}%</p>
+        <p><b>Wind Speed:</b> {{ weather_data.wind.speed }} m/s</p>
+        <p><b>Weather:</b> {{ weather_data.weather[0].description }}</p>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
